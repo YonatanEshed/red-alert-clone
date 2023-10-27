@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Area {
+  id Int @id @default(autoincrement())
+
+  name String
+  nameEn String
+  nameAr String
+
+  cities City[]
+}
+
+model City {
+  id Int @id @default(autoincrement())
+
+  name   String @unique
+  nameEn String
+  nameAr String
+
+  countdown Int
+
+  time   String
+  timeEn String
+  timeAr String
+
+  areaId Int
+  area Area @relation(fields: [areaId], references: [id])
+
+  alerts AlertLocations[]
+}
+
+model Alert {
+  id   Int @id @default(autoincrement())
+  date DateTime @default(now())
+
+  type alertType
+
+  cities AlertLocations[]
+}
+
+enum alertType{
+  missile
+  aircraft
+  earthquake
+  terrorist
+  hazardMat
+}
+
+
+model AlertLocations {
+  alertId Int
+  alert   Alert @relation(fields: [alertId], references: [id])
+
+  cityId Int
+  city   City @relation(fields: [cityId], references: [id])
+
+  @@id([cityId, alertId])
+}

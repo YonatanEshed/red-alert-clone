@@ -1,0 +1,200 @@
+[
+    {
+        "id": 1,
+        "name": "דרום הנגב",
+        "nameEn": "Southern Negev",
+        "nameAr": "جنوبالنقب"
+    },
+    {
+        "id": 2,
+        "name": "יהודה",
+        "nameEn": "Judea",
+        "nameAr": "يهودا"
+    },
+    {
+        "id": 3,
+        "name": "בקעת בית שאן",
+        "nameEn": "Beit Sha'an Valley",
+        "nameAr": "غوربيت شان"
+    },
+    {
+        "id": 4,
+        "name": "ואדי ערה",
+        "nameEn": "Wadi Ara",
+        "nameAr": "واديعارة"
+    },
+    {
+        "id": 5,
+        "name": "אילת",
+        "nameEn": "Eilat",
+        "nameAr": "ايلات"
+    },
+    {
+        "id": 6,
+        "name": "תבור",
+        "nameEn": "Tavor",
+        "nameAr": "تاڨور"
+    },
+    {
+        "id": 7,
+        "name": "קצרין",
+        "nameEn": "Ktazrin",
+        "nameAr": "كتسرين"
+    },
+    {
+        "id": 8,
+        "name": "מערב לכיש",
+        "nameEn": "Western Lakhish",
+        "nameAr": "الغربي لاخيش"
+    },
+    {
+        "id": 9,
+        "name": "ערבה",
+        "nameEn": "Arabah",
+        "nameAr": "عرابا"
+    },
+    {
+        "id": 10,
+        "name": "בקעה",
+        "nameEn": "Syro-African Rift (Jordan River Valley)",
+        "nameAr": "باكعا"
+    },
+    {
+        "id": 11,
+        "name": "יערות הכרמל",
+        "nameEn": "Ye'arut HaCarmel (Carmel Forest)",
+        "nameAr": "غاباتالكرمل"
+    },
+    {
+        "id": 12,
+        "name": "חוף הכרמל",
+        "nameEn": "Hof HaCarmel",
+        "nameAr": "شاطئالكرمل"
+    },
+    {
+        "id": 13,
+        "name": "דרום השפלה",
+        "nameEn": "Southern Shfela",
+        "nameAr": "جنوبالساحل"
+    },
+    {
+        "id": 14,
+        "name": "ירושלים",
+        "nameEn": "Jerusalem",
+        "nameAr": "أورشاليمالقدس"
+    },
+    {
+        "id": 15,
+        "name": "חיפה",
+        "nameEn": "Haifa",
+        "nameAr": "حيفا"
+    },
+    {
+        "id": 16,
+        "name": "דן",
+        "nameEn": "Dan",
+        "nameAr": "دان"
+    },
+    {
+        "id": 17,
+        "name": "שומרון",
+        "nameEn": "Samaria",
+        "nameAr": "شومرون"
+    },
+    {
+        "id": 18,
+        "name": "גליל עליון",
+        "nameEn": "Upper Galilee",
+        "nameAr": "الجليلالأعلى"
+    },
+    {
+        "id": 19,
+        "name": "הקריות",
+        "nameEn": "Hakrayot",
+        "nameAr": "الكريوت"
+    },
+    {
+        "id": 20,
+        "name": "ים המלח",
+        "nameEn": "Dead Sea",
+        "nameAr": "البحرالميت"
+    },
+    {
+        "id": 21,
+        "name": "גולן",
+        "nameEn": "Golan",
+        "nameAr": "جولان"
+    },
+    {
+        "id": 22,
+        "name": "בית שמש",
+        "nameEn": "Beit Shemesh",
+        "nameAr": "بيتشيمش"
+    },
+    {
+        "id": 23,
+        "name": "השפלה",
+        "nameEn": "Shfela (Lowlands)",
+        "nameAr": "الساحل"
+    },
+    {
+        "id": 24,
+        "name": "עוטף עזה",
+        "nameEn": "Gaza Containment Zone",
+        "nameAr": "محيطغزة"
+    },
+    {
+        "id": 25,
+        "name": "ירקון",
+        "nameEn": "Yarkon",
+        "nameAr": "يركون"
+    },
+    {
+        "id": 26,
+        "name": "חפר",
+        "nameEn": "Hefer",
+        "nameAr": "حيفير"
+    },
+    {
+        "id": 27,
+        "name": "גליל תחתון",
+        "nameEn": "Lower Galilee",
+        "nameAr": "الجليلالأسفل"
+    },
+    {
+        "id": 28,
+        "name": "קו העימות",
+        "nameEn": "Confrontation line",
+        "nameAr": "خطالمواجهة"
+    },
+    {
+        "id": 29,
+        "name": "לכיש",
+        "nameEn": "Lakhish",
+        "nameAr": "لاخيش"
+    },
+    {
+        "id": 30,
+        "name": "מנשה",
+        "nameEn": "Menashe",
+        "nameAr": "مناشيه"
+    },
+    {
+        "id": 31,
+        "name": "מרכז הנגב",
+        "nameEn": "Central Negev",
+        "nameAr": "مركزالنقب"
+    },
+    {
+        "id": 32,
+        "name": "שרון",
+        "nameEn": "Sharon",
+        "nameAr": "شارون"
+    },
+    {
+        "id": 33,
+        "name": "מערב הנגב",
+        "nameEn": "Western Negev",
+        "nameAr": "النقب الغربي"
+    }
+]

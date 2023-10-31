@@ -1,10 +1,12 @@
 import express from 'express';
 import alertRoutes from './routes/alertRoutes';
+import locationRoutes from './routes/locationRoutes';
 
 const app = express();
 
 // routes
 app.use('/alerts', alertRoutes);
+app.use('/locations', locationRoutes);
 
 app.get('/', (req, res) => {
     res.end('home');

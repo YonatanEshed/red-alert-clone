@@ -16,7 +16,7 @@ model Area {
 
   name   String @unique
   nameEn String 
-  nameAr String 
+  nameAr String
 
   cities City[]
 }
@@ -62,6 +62,8 @@ model AlertType{
   id Int @id @default(autoincrement()) 
 
   name String @unique
+  nameEn String
+  nameAr String
 
   alerts Alert[]
 }

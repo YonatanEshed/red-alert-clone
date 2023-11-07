@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import alertRoutes from './routes/alertRoutes';
 import locationRoutes from './routes/locationRoutes';
 
+// express app
 const app = express();
 
 // middlewares

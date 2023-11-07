@@ -5,8 +5,6 @@ const cacheClient = new NodeCache();
 function setCache(key: string, experetion: number, data: any) {
     var prevCache: any[] = cacheClient.get(key) || [];
 
-    console.log(prevCache);
-
     prevCache.push(data);
 
     cacheClient.set(key, prevCache, experetion);

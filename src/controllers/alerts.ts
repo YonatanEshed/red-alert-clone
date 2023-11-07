@@ -102,10 +102,6 @@ const createAlert = async (req: Request, res: Response) => {
     }
 };
 
-// const addLocationToAlert = async (req: Request, res: Response) => {
-//     const cities = req.body.cities;
-// };
-
 export default {
     getAllAlerts,
     getAlertById,

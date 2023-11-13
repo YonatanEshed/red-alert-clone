@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 
 import alertRoutes from './routes/alertRoutes';
 import locationRoutes from './routes/locationRoutes';
+import authRoutes from './routes/authRoutes';
 
 // express app
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // routes
+app.use('/admin', authRoutes);
 app.use('/alerts', alertRoutes);
 app.use('/locations', locationRoutes);
 

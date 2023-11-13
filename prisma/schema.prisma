@@ -10,12 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Area {
   id Int @id @default(autoincrement())
 
   name   String @unique
-  nameEn String 
+  nameEn String
   nameAr String
 
   cities City[]
@@ -35,33 +34,25 @@ model City {
   timeAr String
 
   areaId Int
-  area Area @relation(fields: [areaId], references: [id])
+  area   Area @relation(fields: [areaId], references: [id])
 
   alerts AlertLocations[]
 }
 
 model Alert {
-  id   Int @id @default(autoincrement())
+  id   Int      @id @default(autoincrement())
   date DateTime @default(now())
 
   typeId Int
-  type AlertType @relation(fields: [typeId], references: [id])
+  type   AlertType @relation(fields: [typeId], references: [id])
 
   cities AlertLocations[]
 }
 
-// enum alertType{
-//   missile
-//   aircraft
-//   earthquake
-//   terrorist
-//   hazardMat
-// }
+model AlertType {
+  id Int @id @default(autoincrement())
 
-model AlertType{
-  id Int @id @default(autoincrement()) 
-
-  name String @unique
+  name   String @unique
   nameEn String
   nameAr String
 
@@ -76,4 +67,38 @@ model AlertLocations {
   city   City @relation(fields: [cityId], references: [id])
 
   @@id([cityId, alertId])
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  active Boolean @default(false)
+
+  username String
+  password String
+
+  authToken AuthToken[]
+}
+
+model AdminToken {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  token String @unique()
+
+  valid      Boolean  @default(true)
+  expiration DateTime
+}
+
+model AuthToken {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  valid      Boolean  @default(true)
+  expiration DateTime
+
+  adminId Int
+  admin   Admin @relation(fields: [adminId], references: [id])
 }

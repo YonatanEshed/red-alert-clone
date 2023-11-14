@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import jwt from 'jsonwebtoken';
 import { createHash } from 'crypto';
 
 const ADMIN_TOKEN_EXPIRATION_HOURS = 2;
+const AUTH_TOKEN_EXPIRATION_HOURS = 24;
+const JWT_SECRET = process.env.JWT_SECRET || 'SECRET TOKEN';
 
 const prisma = new PrismaClient();
 
@@ -41,8 +44,7 @@ const register = async (req: Request, res: Response) => {
             token: adminToken,
         },
     });
-    console.log(!dbAdminToken);
-    console.log(!dbAdminToken);
+
     if (!dbAdminToken || !dbAdminToken.valid) {
         return res.sendStatus(401);
     }
@@ -63,7 +65,6 @@ const register = async (req: Request, res: Response) => {
             },
         });
 
-        //
         await prisma.adminToken.update({
             where: { token: adminToken },
             data: { valid: false },
@@ -90,8 +91,51 @@ const activateAdmin = async (req: Request, res: Response) => {
     }
 };
 
+const login = async (req: Request, res: Response) => {
+    const { username, password } = req.body;
+
+    const hashedPassword = createHash('sha256').update(password).digest('hex');
+
+    console.log(username, password, hashedPassword);
+
+    const dbAdmin = await prisma.admin.findUnique({ where: { username } });
+
+    if (!dbAdmin || !dbAdmin.active) {
+        return res.status(401).json({ error: 'wrong username or password' });
+    }
+
+    console.log(dbAdmin);
+
+    try {
+        const expiration = new Date(
+            new Date().getTime() + AUTH_TOKEN_EXPIRATION_HOURS * 60 * 60 * 1000
+        );
+
+        const authToken = await prisma.authToken.create({
+            data: {
+                expiration,
+                admin: {
+                    connect: { username },
+                },
+            },
+        });
+
+        let tokenId = authToken.id;
+        const token = jwt.sign({ tokenId }, JWT_SECRET, {
+            algorithm: 'HS256',
+            noTimestamp: true,
+        });
+
+        res.json({ token });
+    } catch (e) {
+        console.log(e);
+        res.status(424).json({ error: 'failed to login' });
+    }
+};
+
 export default {
     generateAdminToken,
     register,
+    login,
     activateAdmin,
 };

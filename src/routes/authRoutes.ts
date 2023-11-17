@@ -1,4 +1,6 @@
 import { Router } from 'express';
+
+import authorization from '../middlewares/authentication';
 import authConteroller from '../controllers/authentication';
 
 const router = Router();
@@ -6,8 +8,8 @@ const router = Router();
 router.post('/register', authConteroller.register);
 router.get('/login', authConteroller.login);
 
-// TODO add auth middleware
-router.get('/adminToken', authConteroller.generateAdminToken);
-router.put('/activateAdmin/:id', authConteroller.activateAdmin);
+// Admin restricted
+router.get('/adminToken', authorization, authConteroller.generateAdminToken);
+router.put('/activateAdmin/:id', authorization, authConteroller.activateAdmin);
 
 export default router;

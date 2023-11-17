@@ -79,7 +79,7 @@ const register = async (req: Request, res: Response) => {
 
 const activateAdmin = async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log(id);
+
     try {
         await prisma.admin.update({
             where: { id: Number(id) },
@@ -96,15 +96,11 @@ const login = async (req: Request, res: Response) => {
 
     const hashedPassword = createHash('sha256').update(password).digest('hex');
 
-    console.log(username, password, hashedPassword);
-
     const dbAdmin = await prisma.admin.findUnique({ where: { username } });
 
-    if (!dbAdmin || !dbAdmin.active) {
+    if (!dbAdmin || !dbAdmin.active || dbAdmin.password !== hashedPassword) {
         return res.status(401).json({ error: 'wrong username or password' });
     }
-
-    console.log(dbAdmin);
 
     try {
         const expiration = new Date(

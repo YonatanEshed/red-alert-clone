@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import authorization from '../middlewares/authentication';
 import realTimeController from '../controllers/realTimeAlert';
 import alertController from '../controllers/alerts';
 
@@ -12,7 +13,7 @@ router.get('/date', alertController.getAlertByTimezone);
 router.get('/:id', alertController.getAlertById);
 router.get('/:typeId', alertController.getAlertByType);
 
-// TODO add auth middleware
-router.post('/', alertController.createAlert);
+// Admin restricted
+router.post('/', authorization, alertController.createAlert);
 
 export default router;

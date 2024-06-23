@@ -13,14 +13,13 @@ This repository contains a clone of the Israeli missile alert system backend. Th
     -   [Admin Login](#admin-login)
     -   [Sending Alerts](#sending-alerts)
     -   [Receiving Alerts](#receiving-alerts)
--   [App Structure](#app-structure)
+    -   [Alerts History](#alerts-history)
 -   [Diagrams](#diagrams)
     -   [App Structure Diagram](#app-structure-diagram)
     -   [New Alert Logic](#new-alert-logic)
     -   [Database Schema](#database-schema)
     -   [Register Admin Sequence Flow](#register-admin-sequence-flow)
     -   [Admin Login Sequence Flow](#admin-login-sequence-flow)
--   [License](#license)
 
 ## Introduction
 
@@ -110,7 +109,7 @@ This application is a backend clone of the Israeli missile alert system. It allo
     ```json
     {
         "type": "AlertTypeId",
-        "cities": ["cityId", ...]
+        "cities": [cityId, ...]
     }
     ```
     - Ensure you include the token in the `Authorization` header.
